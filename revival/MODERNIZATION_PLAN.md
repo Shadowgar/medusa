@@ -114,4 +114,4 @@ Do not block Track A on full engine rewrite.
 
 - Contract tests before refactors.
 - Feature flags and compile-time compatibility switches.
-- Per-repo drift logs already established in `revivial/`.
+- Per-repo drift logs already established in `revival/`.

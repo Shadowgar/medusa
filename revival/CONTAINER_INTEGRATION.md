@@ -14,13 +14,13 @@
 
 Any server-impacting protocol/default change in `medusa` must:
 
-- be logged in `medusa/revivial/DRIFT_LOG.md`
+- be logged in `medusa/revival/DRIFT_LOG.md`
 - include compatibility note for `gamecq` and `darkspace`
-- be mirrored into `gamecq/revivial/DRIFT_LOG.md` when runtime contract changes
+- be mirrored into `gamecq/revival/DRIFT_LOG.md` when runtime contract changes
 
 ## Runtime artifact contract (current)
 
-`gamecq/revivial/scripts/stage-medusa-runtime.ps1` stages these build outputs for server runtime:
+`gamecq/revival/scripts/stage-medusa-runtime.ps1` stages these build outputs for server runtime:
 
 - `Medusa.dll`
 - `Network.dll`
@@ -29,7 +29,7 @@ Source baseline currently used:
 
 - `medusa/out/cmake-bootstrap/Release`
 
-Linux container runtime path also stages these legacy makefile outputs via `gamecq/revivial/scripts/stage-server-binaries.ps1`:
+Linux container runtime path also stages these legacy makefile outputs via `gamecq/revival/scripts/stage-server-binaries.ps1`:
 
 - `libMedusa.so`
 - `libNetwork.so`

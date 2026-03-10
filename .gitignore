@@ -22,3 +22,7 @@ unsuccessfulbuild
 *.dll
 Release/
 ReleaseLinux/
+
+# Revival generated artifacts
+out/
+revival/out/

@@ -2,7 +2,7 @@
 
 ## 2026-03-10
 
-- Initialized `medusa/revivial/` documentation baseline:
+- Initialized `medusa/revival/` documentation baseline:
   - `README.md`
   - `COMPONENT_MAP.md`
   - `MODERNIZATION_PLAN.md`
@@ -23,8 +23,8 @@
   - `builder@example.invalid:22` now used instead of prior credential-like host string.
 - Started Phase 1 modernization work:
   - added `medusa/CMakeLists.txt` bootstrap for `medusa` + `network` targets
-  - added `medusa/revivial/CMAKE_BOOTSTRAP.md`
-  - updated `medusa/revivial/MODERNIZATION_PLAN.md` progress snapshot
+  - added `medusa/revival/CMAKE_BOOTSTRAP.md`
+  - updated `medusa/revival/MODERNIZATION_PLAN.md` progress snapshot
 - CMake bootstrap hardening and compile unblocks:
   - `Debug/Error.cpp`
     - replaced x86 inline breakpoint asm with `DebugBreak()` for x64 compatibility.
@@ -43,9 +43,9 @@
 - Validation:
   - `cmake --build ... --target medusa network` now passes in `Release` with VS2022 generator.
 - Cross-repo container integration update:
-  - `gamecq/revivial/scripts/stage-medusa-runtime.ps1` now stages `Medusa.dll` and `Network.dll` from `medusa/out/cmake-bootstrap/Release` into server runtime bin path.
+  - `gamecq/revival/scripts/stage-medusa-runtime.ps1` now stages `Medusa.dll` and `Network.dll` from `medusa/out/cmake-bootstrap/Release` into server runtime bin path.
 - Cross-repo Linux container build/staging update:
-  - `gamecq/revivial/docker/builder/*` and `scripts/build-linux-server-bootstrap.ps1` now build legacy Linux medusa outputs and stage server runtime dependencies from:
+  - `gamecq/revival/docker/builder/*` and `scripts/build-linux-server-bootstrap.ps1` now build legacy Linux medusa outputs and stage server runtime dependencies from:
     - `medusa/out/server-bootstrap/Release` (`libMedusa.so`, `libNetwork.so`, `libGCQ.so`, `libRender3D.so`, `libWorld.so`)
 - Linux bootstrap compatibility adjustment:
   - `World/WorldContextScript.cpp` now allows disabling LuaJIT module registration/activation with `MEDUSA_DISABLE_LUA_JIT_MODULE`.

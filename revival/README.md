@@ -12,8 +12,8 @@ This folder tracks server-relevant revival work inside `medusa`.
 
 - Any server-impacting change in `medusa` must be logged in `DRIFT_LOG.md`.
 - If the change alters runtime contracts (ports, protocol behavior, auth flags), mirror the note in:
-  - `gamecq/revivial/DRIFT_LOG.md`
-  - `darkspace/revivial/DRIFT_LOG.md`
+  - `gamecq/revival/DRIFT_LOG.md`
+  - `darkspace/revival/DRIFT_LOG.md`
 
 ## Current objective
 
@@ -28,4 +28,4 @@ Current baseline status: `medusa` and `network` CMake bootstrap targets pass in 
 
 Primary orchestration contract currently lives in:
 
-- `gamecq/revivial/docker-compose.server.yml`
+- `gamecq/revival/docker-compose.server.yml`
