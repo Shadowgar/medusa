@@ -128,8 +128,6 @@ void Type::initialize()
 	TypeSerialized<s16>::instance();
 	TypeSerialized<u32>::instance();
 	TypeSerialized<s32>::instance();
-	TypeSerialized<ul32>::instance();
-	TypeSerialized<sl32>::instance();
 	TypeSerialized<u64>::instance();
 	TypeSerialized<s64>::instance();
 	TypeSerialized<f32>::instance();

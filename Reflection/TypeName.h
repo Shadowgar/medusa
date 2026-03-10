@@ -132,26 +132,6 @@ struct TypeName<s64>
 };
 
 template<>
-struct TypeName<ul32>
-{
-	static const CharString & name() 
-	{ 
-		static CharString name( "ul32" );
-		return name; 
-	}
-};
-
-template<>
-struct TypeName<sl32>
-{
-	static const CharString & name() 
-	{ 
-		static CharString name( "sl32" );
-		return name; 
-	}
-};
-
-template<>
 struct TypeName<f32>
 {
 	static const CharString & name() 

@@ -35,6 +35,23 @@ qword rdtsc()
 }
 #endif
 
+#if !defined(_WIN32)
+namespace
+{
+	bool getLocalTime(dword nTime, tm & outTime)
+	{
+		time_t rawTime = static_cast<time_t>(nTime);
+		return localtime_r(&rawTime, &outTime) != NULL;
+	}
+
+	bool getTimeString(dword nTime, char * pBuffer)
+	{
+		time_t rawTime = static_cast<time_t>(nTime);
+		return ctime_r(&rawTime, pBuffer) != NULL;
+	}
+}
+#endif
+
 #pragma warning( disable : 4996 )	// warning C4996: 'localtime' was declared deprecated
 
 #if ENABLE_QPC && defined(_WIN32)
@@ -142,7 +159,10 @@ WideString Time::format(dword nTime, const wchar * pFormat)
 #if defined(_WIN32)
 	wcsftime(sOut, MAX_TIME_FORMAT_STRING, pFormat, _localtime32((__time32_t *)&nTime));
 #else
-	wcsftime(sOut, MAX_TIME_FORMAT_STRING, pFormat, localtime((time_t *)&nTime));
+	tm localTime;
+	if (! getLocalTime(nTime, localTime))
+		return WideString();
+	wcsftime(sOut, MAX_TIME_FORMAT_STRING, pFormat, &localTime);
 #endif
 	return WideString(sOut);
 }
@@ -153,7 +173,10 @@ CharString Time::format(dword nTime, const char * pFormat)
 #if defined(_WIN32)
 	strftime(sOut, MAX_TIME_FORMAT_STRING, pFormat, _localtime32((__time32_t *)&nTime));
 #else
-	strftime(sOut, MAX_TIME_FORMAT_STRING, pFormat, localtime((time_t *)&nTime));
+	tm localTime;
+	if (! getLocalTime(nTime, localTime))
+		return CharString();
+	strftime(sOut, MAX_TIME_FORMAT_STRING, pFormat, &localTime);
 #endif
 	return CharString(sOut);
 }
@@ -195,7 +218,10 @@ bool Time::isTime(dword nSeconds, const char * pMask)
 #if defined(_WIN32)
 	tm * pTime = _localtime32((const __time32_t *)&nSeconds);
 #else
-	tm * pTime = localtime((const time_t *)&nSeconds);
+	tm localTime;
+	if (! getLocalTime(nSeconds, localTime))
+		return false;
+	tm * pTime = &localTime;
 #endif
 	if (!CheckMaskPart(sParts[0], (pTime->tm_mon + 1)))
 		return false;
@@ -218,7 +244,10 @@ CharString Time::time(dword nSeconds)
 #if defined(_WIN32)
 	return _ctime32((__time32_t *)&nSeconds);
 #else
-	return ctime((time_t *)&nSeconds);
+	char buffer[64];
+	if (! getTimeString(nSeconds, buffer))
+		return CharString();
+	return CharString(buffer);
 #endif
 }
 

@@ -49,8 +49,8 @@ typedef unsigned short		u16;
 typedef short				s16;
 typedef unsigned int		u32;
 typedef int					s32;
-typedef unsigned long		ul32;
-typedef long				sl32;
+typedef u32					ul32;
+typedef s32					sl32;
 
 typedef float				f32;
 typedef double				f64;

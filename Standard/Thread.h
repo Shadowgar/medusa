@@ -24,7 +24,7 @@ class DLL Thread
 public:
 	// Types
 	enum {
-		DEFAULT_STACK_SIZE = 4096,
+		DEFAULT_STACK_SIZE = 0,
 	};
 
 	enum Priority {

@@ -407,12 +407,6 @@ void TypeCopy::initialize()
 	TypeCopyDefault<s32,s16>::instance();
 	TypeCopyDefault<u32,u32>::instance();							// u32
 	TypeCopyDefault<s32,s32>::instance();							// s32
-	TypeCopyDefault<ul32,ul32>::instance();							// ul32
-	TypeCopyDefault<ul32,u32>::instance();
-	TypeCopyDefault<u32,ul32>::instance();
-	TypeCopyDefault<sl32,sl32>::instance();							// sl32
-	TypeCopyDefault<sl32,s32>::instance();
-	TypeCopyDefault<s32,sl32>::instance();
 
 	TypeCopyDefault<u64,u64>::instance();							// u64
 	TypeCopyDefault<u64,u32>::instance();			

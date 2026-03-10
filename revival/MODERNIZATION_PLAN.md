@@ -1,117 +1,107 @@
 # Medusa Modernization Plan
 
-This plan defines how to modernize the `medusa` engine while keeping the live server revival moving.
+This is now the critical path for the whole revival effort.
 
-## Principles
+`medusa` is not just an engine repo. It is the unstable substrate under every server binary. The current plan is therefore a line-by-line runtime modernization pass with compile gates, not a loose build-and-debug loop.
 
-- Keep gameplay/protocol behavior stable while modernizing internals.
-- Separate "build/runtime modernization" from "feature changes".
-- Ship in small reversible slices with regression tests.
-- Prefer compatibility layers over hard rewrites in early phases.
+## Current Reality
 
-## Target Outcomes
+The failures already proved in code point to foundational runtime defects:
 
-- Reproducible cross-platform builds (CI + containerized toolchain).
-- Engine code on modern C++ standard with stricter warnings.
-- Replaced or isolated legacy platform locks (DirectX9-era assumptions, legacy project metadata).
-- Automated coverage for protocol, serialization, and world-server critical paths.
+- 32-bit aliases used where the code assumes exact widths
+- stack sizing that is incompatible with large formatting buffers
+- `time_t` and libc misuse on 64-bit Linux
+- unsafe thread and pointer ID handling
+- legacy string and logging paths that are not safe on modern platforms
 
-## Progress snapshot (2026-03-10)
+Until those are repaired, higher-level service and gameplay debugging will keep wasting time.
 
-- Phase 1 started:
-  - Added initial `CMakeLists.txt` at repo root for `medusa` + `network`.
-  - Added bootstrap notes in `CMAKE_BOOTSTRAP.md`.
-- Phase 1 compile unblocks completed:
-  - x64 compatibility fixes applied in debug exception/error handling paths.
-  - third-party source set constrained to library-only re2/zlib units.
-  - deprecated/partial mirror server units excluded from baseline `network` target.
-  - `medusa` + `network` now build successfully in Release via VS2022 CMake generator.
-- Not started yet:
-  - CI matrix and artifact publishing.
-  - `world` and stable `gcq` CMake targets.
+## New Objective
 
-## Phase 0: Baseline Freeze
+Turn `medusa` into a 64-bit-correct, server-safe runtime before doing more deep service bring-up.
 
-- Tag a known-good baseline for server revival.
-- Capture current protocol contracts and serialized formats.
-- Freeze public network message IDs and DB schema contracts for the first modernization cycle.
+That means:
 
-Exit criteria:
+- static code sweep first
+- compile verification second
+- fast smoke tests third
+- no long runtime loops by default
 
-- Baseline tag created.
-- Protocol/serialization contract docs checked in.
+## Rewrite Order
 
-## Phase 1: Build System Modernization
+### Pass 1: Runtime Substrate
 
-- Introduce CMake alongside existing project files.
-- Preserve current output layout so existing startup scripts continue to work.
-- Add CI matrix for Linux and Windows build verification.
-- Normalize compiler warnings and fail on new warnings for touched files.
+Review and modernize these areas line by line:
 
-Exit criteria:
+- `Standard/Types*`
+- `Standard/Thread*`
+- `Standard/Time*`
+- `Standard/String*`
+- `Debug/Log*`
+- `Standard/Event*`
+- `Standard/Process*`
+- `Standard/Reference*`
+- `Standard/Referenced*`
 
-- Core server-linked medusa libs build from CMake on Linux and Windows.
-- CI produces artifacts consumed by server stack.
+Focus:
 
-## Phase 2: Dependency and Platform Decoupling
+- exact-width integer correctness
+- pointer-width correctness
+- stack safety
+- libc API correctness
+- thread lifecycle correctness
 
-- Inventory hard platform locks in engine subsystems:
-  - rendering interfaces
-  - audio
-  - input/system wrappers
-- Split interfaces from legacy implementations.
-- Keep legacy implementations available behind compile switches until parity is validated.
+### Pass 2: Reflection, Serialization, and Utility Layers
 
-Exit criteria:
+- `Reflection/*`
+- serialization helpers
+- hashing and format-dependent helpers
 
-- Server-critical medusa modules compile without client-only platform dependencies.
-- Platform abstraction boundaries documented and enforced.
+Focus:
 
-## Phase 3: Language/Runtime Upgrade
+- binary layout assumptions
+- duplicate type aliases
+- unsafe conversions
+- protocol-adjacent data handling
 
-- Move to modern C++ (target C++20 unless blocked).
-- Replace unsafe or custom legacy patterns where high risk:
-  - raw ownership-heavy allocations in critical paths
-  - ad-hoc threading primitives where standard primitives are safer
-- Add sanitizers in CI for Linux debug builds.
+### Pass 3: Network and Protocol
 
-Exit criteria:
+- `Network/*`
+- `GCQ/*`
+- server-critical portions of `World/*`
 
-- C++ standard uplift complete for server-critical targets.
-- Sanitizer-clean on selected test suites.
+Focus:
 
-## Phase 4: Engine Quality Hardening
+- resolver behavior
+- socket setup
+- packet serialization
+- thread usage and time usage in network paths
 
-- Expand automated tests for:
-  - protocol encoding/decoding
-  - auth/session flow
-  - world server login and player state transitions
-- Add deterministic integration test harness for server startup path.
+### Pass 4: Build and Test Harness
 
-Exit criteria:
+- finish modern build coverage for server-critical targets
+- add fast validation targets
+- create smoke tests that fail quickly
 
-- Repeatable integration test pass for core server loop.
-- Regression suite gates merges.
+## Engineering Rules For This Repo
 
-## Immediate Workstream for Revival
+- every touched file gets a 64-bit safety pass
+- no new code should depend on implicit `long` width
+- avoid large stack buffers in thread hot paths
+- use thread-safe libc APIs where available
+- keep server-critical code free of client-only dependencies whenever possible
 
-While modernization proceeds, keep these parallel tracks:
+## Definition Of Done For Medusa
 
-- Track A: "Revival Runtime"
-  - keep server stack running in containers.
-- Track B: "Engine Modernization"
-  - migrate build system and engine internals behind compatibility layers.
+`medusa` is considered repaired enough for the next stage when:
 
-Do not block Track A on full engine rewrite.
+- server-critical libraries build cleanly on modern 64-bit Windows and Linux
+- basic server startup no longer crashes inside runtime helpers
+- network and protocol code can be debugged without first fighting substrate failures
 
-## Risks
+## Immediate Backlog
 
-- Protocol drift during refactors.
-- Hidden coupling between client-era rendering code and shared engine modules.
-- Build migration churn across three repos.
-
-## Mitigations
-
-- Contract tests before refactors.
-- Feature flags and compile-time compatibility switches.
-- Per-repo drift logs already established in `revival/`.
+- finish the runtime substrate sweep
+- document each repaired defect class in `DRIFT_LOG.md`
+- add compile gates for server-critical targets
+- reduce dependence on legacy makefile behavior for correctness

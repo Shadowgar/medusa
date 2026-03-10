@@ -50,3 +50,22 @@
 - Linux bootstrap compatibility adjustment:
   - `World/WorldContextScript.cpp` now allows disabling LuaJIT module registration/activation with `MEDUSA_DISABLE_LUA_JIT_MODULE`.
   - current legacy Linux builder sets this define to avoid unresolved `luaopen_jit` linker failures when using host-arch Lua compatibility libs.
+- 64-bit runtime compatibility pass started for server-critical substrate:
+  - `Standard/Types.h`
+    - normalized `ul32`/`sl32` to fixed-width aliases so `dword` remains 32-bit on Linux.
+  - `Reflection/TypeName.h`
+  - `Reflection/Type.cpp`
+  - `Reflection/TypeCopy.cpp`
+    - removed duplicate alias registrations that collided after fixed-width normalization.
+  - `Standard/MD5.h`
+  - `Standard/MD5.cpp`
+    - converted MD5 internal state from `unsigned long` to `dword`.
+  - `Standard/Time.cpp`
+    - replaced invalid `time_t *` casts with safe local temporaries and thread-safe libc calls on Linux.
+  - `Standard/Thread.h`
+  - `Standard/Thread.cpp`
+    - changed default thread stack behavior to use platform default unless an explicit stack size is requested.
+- Planning reset:
+  - `revival/GRAND_PLAN.md`
+  - `revival/MODERNIZATION_PLAN.md`
+    - shifted modernization strategy from runtime crash-chasing to static-first subsystem rewrites with compile and short smoke-test gates.

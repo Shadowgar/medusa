@@ -52,8 +52,8 @@ private:
 
 private:
 	byte			m_lpszBuffer[64];		// input buffer
-	unsigned long	m_nCount[2];			// number of bits, modulo 2^64 (lsb first)
-	unsigned long	m_lMD5[4];				// MD5 checksum
+	dword			m_nCount[2];			// number of bits, modulo 2^64 (lsb first)
+	dword			m_lMD5[4];				// MD5 checksum
 };
 
 

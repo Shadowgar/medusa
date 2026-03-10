@@ -1,6 +1,6 @@
 # Medusa Revival (Shared Runtime/Protocol)
 
-This folder tracks server-relevant revival work inside `medusa`.
+This folder tracks shared runtime, renderer, and tooling revival work inside `medusa`.
 
 ## Scope in this repo
 
@@ -21,10 +21,12 @@ Keep shared protocol/runtime stable while server components move into containeri
 
 Current baseline status: `medusa` and `network` CMake bootstrap targets pass in Release (VS2022 generator). See `CMAKE_BOOTSTRAP.md`.
 
-## Modernization track
+## Planning docs
 
-- See `MODERNIZATION_PLAN.md` for engine upgrade phases and constraints.
-- CMake bootstrap status and commands are tracked in `CMAKE_BOOTSTRAP.md`.
+- `GRAND_PLAN.md`: cross-repo strategy that ties `medusa`, `darkspace`, and `gamecq` together
+- `REVIVAL_PLAN.md`: repo-specific audit and execution plan for engine, runtime, renderer, and tooling
+- `MODERNIZATION_PLAN.md`: earlier tactical engine modernization notes retained for continuity
+- `CMAKE_BOOTSTRAP.md`: current bootstrap status and commands
 
 Primary orchestration contract currently lives in:
 

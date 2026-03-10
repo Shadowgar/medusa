@@ -35,7 +35,7 @@ Thread::Thread( Priority p /*= STANDARD*/, int stack /*= DEFAULT_STACK_SIZE*/ ) 
 	m_bAutoDelete( false ),
 	m_nNextStorageId( 1 )
 {
-	if ( m_StackSize < MIN_STACK_SIZE )
+	if ( m_StackSize > 0 && m_StackSize < MIN_STACK_SIZE )
 		m_StackSize = MIN_STACK_SIZE;
 }
 
