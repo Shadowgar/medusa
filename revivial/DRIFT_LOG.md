@@ -1,0 +1,49 @@
+# Drift Log (medusa)
+
+## 2026-03-10
+
+- Initialized `medusa/revivial/` documentation baseline:
+  - `README.md`
+  - `COMPONENT_MAP.md`
+  - `MODERNIZATION_PLAN.md`
+  - `DRIFT_LOG.md` (this file)
+- Security/server-default hardening already applied:
+  - `World/WorldServerMessage.cpp`
+    - tutorial login path no longer grants administrator flag
+    - localhost/session bypass constrained to tutorial mode
+  - `GCQ/MasterClient.cpp`
+  - `GCQ/MetaClient.cpp`
+    - localized default server addresses for revival stack
+  - `UnitTest/UnitTest.cpp`
+    - exception handling now active without debug-only guard
+    - removed forced post-run sleep
+  - `SelfUpdate/ClientUpdate.cpp`
+    - localized mirror default to local orchestration target
+- Replaced hardcoded historical remote build login string in project metadata with placeholder value:
+  - `builder@example.invalid:22` now used instead of prior credential-like host string.
+- Started Phase 1 modernization work:
+  - added `medusa/CMakeLists.txt` bootstrap for `medusa` + `network` targets
+  - added `medusa/revivial/CMAKE_BOOTSTRAP.md`
+  - updated `medusa/revivial/MODERNIZATION_PLAN.md` progress snapshot
+- CMake bootstrap hardening and compile unblocks:
+  - `Debug/Error.cpp`
+    - replaced x86 inline breakpoint asm with `DebugBreak()` for x64 compatibility.
+  - `Debug/ExceptionHandler.cpp`
+    - added `_WIN64` guards for x86 stack-walk paths
+    - made exception/address formatting pointer-width safe
+    - corrected exception string helper typing (`const char *`) and NTDLL module name
+    - added x64 register dump branch (`RAX`..`RIP`).
+  - `Reflection/TypeCopy.h`
+    - standardized include to `<typeinfo>`.
+  - `CMakeLists.txt`
+    - replaced broad third-party `*.c` globs with curated re2/zlib source lists
+    - excluded deprecated partial network files from CMake target:
+      - `Network/MirrorServerDepreciated.cpp`
+      - `Network/MirrorServerVersionControl.cpp`
+- Validation:
+  - `cmake --build ... --target medusa network` now passes in `Release` with VS2022 generator.
+- Cross-repo container integration update:
+  - `gamecq/revivial/scripts/stage-medusa-runtime.ps1` now stages `Medusa.dll` and `Network.dll` from `medusa/out/cmake-bootstrap/Release` into server runtime bin path.
+- Cross-repo Linux container build/staging update:
+  - `gamecq/revivial/docker/builder/*` and `scripts/build-linux-server-bootstrap.ps1` now build legacy Linux medusa outputs and stage server runtime dependencies from:
+    - `medusa/out/server-bootstrap/Release` (`libMedusa.so`, `libNetwork.so`, `libGCQ.so`, `libRender3D.so`, `libWorld.so`)

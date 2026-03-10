@@ -241,7 +241,7 @@ bool ClientUpdate::updateSelf( const char * pSection, const char * pAddress /*= 
 
 		CString sUpdateExec = CString(sPath) + settings.get( "UpdateExec", "SmartUpdate.exe" );
 		CString sUpdateExec2 = CString(sPath) + settings.get( "UpdateExec2", "SmartUpdate2.exe" );
-		CString sMirrorAddress = settings.get( "mirrorAddress", pAddress != NULL ? pAddress : "mirror-server.palestar.com" );
+		CString sMirrorAddress = settings.get( "mirrorAddress", pAddress != NULL ? pAddress : "127.0.0.1" );
 		int		nMirrorPort = settings.get( "mirrorPort", nPort != 0 ? nPort : (int)0 );
 
 		if ( nMirrorPort == 0 )

@@ -68,15 +68,14 @@ void WorldServer::receiveMessage( ClientContext & context, bool bUDP, byte nMess
 				input >> job.bServer;
 
 				// if we are in tutorial mode or session id is 0 and from the localhost, then run without login information..
-				if ( m_Context.bTutorial || (job.nSessionId == 0 
-					&& strcmp( clientAddress( context.nClientId ), "127.0.0.1" ) == 0) )
+				if ( m_Context.bTutorial && job.nSessionId == 0 )
 				{
-					// initialize "Cadet" account, allowed on tutorial servers only!
+					// Initialize a restricted tutorial account. Do not grant moderator or admin flags.
 					job.bDone = true;
 					job.profile.userId = 0xffffffff;
 					job.profile.sessionId = job.nSessionId;
 					job.profile.clanId = 0;
-					job.profile.flags = MetaClient::DEMO|MetaClient::SUBSCRIBED|MetaClient::ADMINISTRATOR;
+					job.profile.flags = MetaClient::DEMO|MetaClient::SUBSCRIBED;
 					job.profile.name = "Cadet";
 					job.profile.score = 0.0f;
 				}

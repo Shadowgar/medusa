@@ -1,0 +1,464 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{0E3608BE-EC22-3FFD-892E-BB25EE723B2F}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>medusa</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\DarkSpace\medusa\out\cmake-bootstrap\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">medusa.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Medusa</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\DarkSpace\medusa\out\cmake-bootstrap\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">medusa.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Medusa</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\DarkSpace\medusa\out\cmake-bootstrap\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">medusa.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Medusa</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\DarkSpace\medusa\out\cmake-bootstrap\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">medusa.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Medusa</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</GenerateManifest>
+  </PropertyGroup>
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\DarkSpace\medusa;D:\DarkSpace\medusa\ThirdParty;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <ConformanceMode>true</ConformanceMode>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level4</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;MEDUSA_DLL;REGEXP_UNICODE;_USRDLL;CMAKE_INTDIR="Debug";medusa_EXPORTS</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;MEDUSA_DLL;REGEXP_UNICODE;_USRDLL;CMAKE_INTDIR=\"Debug\";medusa_EXPORTS</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\DarkSpace\medusa;D:\DarkSpace\medusa\ThirdParty;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\DarkSpace\medusa;D:\DarkSpace\medusa\ThirdParty;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>D:/DarkSpace/medusa/out/cmake-bootstrap/Debug/Medusa.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/DarkSpace/medusa/out/cmake-bootstrap/Debug/Medusa.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\DarkSpace\medusa;D:\DarkSpace\medusa\ThirdParty;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <ConformanceMode>true</ConformanceMode>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level4</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;MEDUSA_DLL;REGEXP_UNICODE;_USRDLL;CMAKE_INTDIR="Release";medusa_EXPORTS</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;MEDUSA_DLL;REGEXP_UNICODE;_USRDLL;CMAKE_INTDIR=\"Release\";medusa_EXPORTS</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\DarkSpace\medusa;D:\DarkSpace\medusa\ThirdParty;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\DarkSpace\medusa;D:\DarkSpace\medusa\ThirdParty;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>D:/DarkSpace/medusa/out/cmake-bootstrap/Release/Medusa.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/DarkSpace/medusa/out/cmake-bootstrap/Release/Medusa.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\DarkSpace\medusa;D:\DarkSpace\medusa\ThirdParty;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <ConformanceMode>true</ConformanceMode>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level4</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;MEDUSA_DLL;REGEXP_UNICODE;_USRDLL;CMAKE_INTDIR="MinSizeRel";medusa_EXPORTS</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;MEDUSA_DLL;REGEXP_UNICODE;_USRDLL;CMAKE_INTDIR=\"MinSizeRel\";medusa_EXPORTS</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\DarkSpace\medusa;D:\DarkSpace\medusa\ThirdParty;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\DarkSpace\medusa;D:\DarkSpace\medusa\ThirdParty;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>D:/DarkSpace/medusa/out/cmake-bootstrap/MinSizeRel/Medusa.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/DarkSpace/medusa/out/cmake-bootstrap/MinSizeRel/Medusa.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\DarkSpace\medusa;D:\DarkSpace\medusa\ThirdParty;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <ConformanceMode>true</ConformanceMode>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level4</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;MEDUSA_DLL;REGEXP_UNICODE;_USRDLL;CMAKE_INTDIR="RelWithDebInfo";medusa_EXPORTS</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;MEDUSA_DLL;REGEXP_UNICODE;_USRDLL;CMAKE_INTDIR=\"RelWithDebInfo\";medusa_EXPORTS</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\DarkSpace\medusa;D:\DarkSpace\medusa\ThirdParty;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\DarkSpace\medusa;D:\DarkSpace\medusa\ThirdParty;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>D:/DarkSpace/medusa/out/cmake-bootstrap/RelWithDebInfo/Medusa.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/DarkSpace/medusa/out/cmake-bootstrap/RelWithDebInfo/Medusa.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\DarkSpace\medusa\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule D:/DarkSpace/medusa/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SD:/DarkSpace/medusa -BD:/DarkSpace/medusa/out/cmake-bootstrap --check-stamp-file D:/DarkSpace/medusa/out/cmake-bootstrap/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.30\Modules\CMakeCInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.30\Modules\CMakeCXXInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.30\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.30\Modules\CMakeGenericSystem.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.30\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.30\Modules\CMakeLanguageInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.30\Modules\CMakeRCInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.30\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.30\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.30\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.30\Modules\Compiler\MSVC-C.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.30\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.30\Modules\Compiler\MSVC.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.30\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.30\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.30\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.30\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.30\Modules\Platform\Windows.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.30\Modules\Platform\WindowsPaths.cmake;D:\DarkSpace\medusa\out\cmake-bootstrap\CMakeFiles\3.30.5-msvc23\CMakeCCompiler.cmake;D:\DarkSpace\medusa\out\cmake-bootstrap\CMakeFiles\3.30.5-msvc23\CMakeCXXCompiler.cmake;D:\DarkSpace\medusa\out\cmake-bootstrap\CMakeFiles\3.30.5-msvc23\CMakeRCCompiler.cmake;D:\DarkSpace\medusa\out\cmake-bootstrap\CMakeFiles\3.30.5-msvc23\CMakeSystem.cmake;D:\DarkSpace\medusa\out\cmake-bootstrap\CMakeFiles\cmake.verify_globs;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\DarkSpace\medusa\out\cmake-bootstrap\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule D:/DarkSpace/medusa/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SD:/DarkSpace/medusa -BD:/DarkSpace/medusa/out/cmake-bootstrap --check-stamp-file D:/DarkSpace/medusa/out/cmake-bootstrap/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.30\Modules\CMakeCInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.30\Modules\CMakeCXXInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.30\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.30\Modules\CMakeGenericSystem.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.30\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.30\Modules\CMakeLanguageInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.30\Modules\CMakeRCInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.30\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.30\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.30\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.30\Modules\Compiler\MSVC-C.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.30\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.30\Modules\Compiler\MSVC.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.30\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.30\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.30\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.30\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.30\Modules\Platform\Windows.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.30\Modules\Platform\WindowsPaths.cmake;D:\DarkSpace\medusa\out\cmake-bootstrap\CMakeFiles\3.30.5-msvc23\CMakeCCompiler.cmake;D:\DarkSpace\medusa\out\cmake-bootstrap\CMakeFiles\3.30.5-msvc23\CMakeCXXCompiler.cmake;D:\DarkSpace\medusa\out\cmake-bootstrap\CMakeFiles\3.30.5-msvc23\CMakeRCCompiler.cmake;D:\DarkSpace\medusa\out\cmake-bootstrap\CMakeFiles\3.30.5-msvc23\CMakeSystem.cmake;D:\DarkSpace\medusa\out\cmake-bootstrap\CMakeFiles\cmake.verify_globs;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\DarkSpace\medusa\out\cmake-bootstrap\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule D:/DarkSpace/medusa/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SD:/DarkSpace/medusa -BD:/DarkSpace/medusa/out/cmake-bootstrap --check-stamp-file D:/DarkSpace/medusa/out/cmake-bootstrap/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.30\Modules\CMakeCInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.30\Modules\CMakeCXXInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.30\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.30\Modules\CMakeGenericSystem.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.30\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.30\Modules\CMakeLanguageInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.30\Modules\CMakeRCInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.30\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.30\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.30\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.30\Modules\Compiler\MSVC-C.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.30\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.30\Modules\Compiler\MSVC.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.30\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.30\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.30\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.30\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.30\Modules\Platform\Windows.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.30\Modules\Platform\WindowsPaths.cmake;D:\DarkSpace\medusa\out\cmake-bootstrap\CMakeFiles\3.30.5-msvc23\CMakeCCompiler.cmake;D:\DarkSpace\medusa\out\cmake-bootstrap\CMakeFiles\3.30.5-msvc23\CMakeCXXCompiler.cmake;D:\DarkSpace\medusa\out\cmake-bootstrap\CMakeFiles\3.30.5-msvc23\CMakeRCCompiler.cmake;D:\DarkSpace\medusa\out\cmake-bootstrap\CMakeFiles\3.30.5-msvc23\CMakeSystem.cmake;D:\DarkSpace\medusa\out\cmake-bootstrap\CMakeFiles\cmake.verify_globs;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\DarkSpace\medusa\out\cmake-bootstrap\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule D:/DarkSpace/medusa/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SD:/DarkSpace/medusa -BD:/DarkSpace/medusa/out/cmake-bootstrap --check-stamp-file D:/DarkSpace/medusa/out/cmake-bootstrap/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.30\Modules\CMakeCInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.30\Modules\CMakeCXXInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.30\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.30\Modules\CMakeGenericSystem.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.30\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.30\Modules\CMakeLanguageInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.30\Modules\CMakeRCInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.30\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.30\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.30\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.30\Modules\Compiler\MSVC-C.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.30\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.30\Modules\Compiler\MSVC.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.30\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.30\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.30\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.30\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.30\Modules\Platform\Windows.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.30\Modules\Platform\WindowsPaths.cmake;D:\DarkSpace\medusa\out\cmake-bootstrap\CMakeFiles\3.30.5-msvc23\CMakeCCompiler.cmake;D:\DarkSpace\medusa\out\cmake-bootstrap\CMakeFiles\3.30.5-msvc23\CMakeCXXCompiler.cmake;D:\DarkSpace\medusa\out\cmake-bootstrap\CMakeFiles\3.30.5-msvc23\CMakeRCCompiler.cmake;D:\DarkSpace\medusa\out\cmake-bootstrap\CMakeFiles\3.30.5-msvc23\CMakeSystem.cmake;D:\DarkSpace\medusa\out\cmake-bootstrap\CMakeFiles\cmake.verify_globs;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\DarkSpace\medusa\out\cmake-bootstrap\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="D:\DarkSpace\medusa\Audio\AudioCodec.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\Audio\AudioDevice.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\Audio\Jukebox.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\Audio\Music.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\Audio\Sound.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\Debug\Assert.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\Debug\Error.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\Debug\ExceptionHandler.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\Debug\Log.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\Debug\Profile.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\Debug\SafeThread.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\Display\DevicePrimitive.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\Display\DisplayDevice.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\Display\DisplayEffect.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\Draw\Draw.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\Draw\Font.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\Draw\Image.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\Draw\ImageCodec.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\Draw\Palette.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\Factory\Broker.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\Factory\BrokerArchive.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\Factory\BrokerCache.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\Factory\BrokerFolder.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\Factory\ClassKey.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\Factory\Factory.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\Factory\FactoryTypes.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\Factory\Widget.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\Factory\WidgetWrap.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\File\Archive.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\File\Dictionary.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\File\File.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\File\FileArchive.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\File\FileChange.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\File\FileDisk.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\File\FileFIFO.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\File\FileMap.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\File\FileMemory.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\File\FileMemoryBlocked.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\File\FindFile.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\File\Path.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\File\Stream.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\Math\BoxHull.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\Math\MathTypes.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\Math\Matrix33.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\Math\Plane.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\Math\Quat.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\Math\SphericalHull.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\Math\Vector3.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\Movie\Movie.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\Reflection\Property.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\Reflection\PropertyClass.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\Reflection\PropertyList.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\Reflection\Type.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\Reflection\TypeCopy.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\Reflection\Value.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\Resource\Collection.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\Resource\Resource.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\Resource\ResourceLink.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\Resource\Text.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\Standard\Atomic.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\Standard\BitIterator.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\Standard\Buffer.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\Standard\Codec.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\Standard\ColorFormat.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\Standard\Constant.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\Standard\CriticalSection.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\Standard\Event.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\Standard\Exception.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\Standard\Expression.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\Standard\FIFOBuffer.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\Standard\LZW.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\Standard\Library.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\Standard\MD5.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\Standard\Mutex.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\Standard\Process.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\Standard\RandomNumber.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\Standard\Referenced.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\Standard\RegExpM.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\Standard\Registry.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\Standard\Settings.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\Standard\String.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\Standard\StringBuffer.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\Standard\StringHash.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\Standard\Thread.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\Standard\Time.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\Standard\Timer.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\Standard\TimerWheel.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\Standard\UUE.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\Standard\UniqueNumber.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\Standard\ZLIB.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\System\CommandTarget.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\System\Keyboard.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\System\Locale.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\System\LocalizedString.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\System\Platform.cpp" />
+    <ClCompile Include="D:\DarkSpace\medusa\ThirdParty\re2\frontend.c" />
+    <ClCompile Include="D:\DarkSpace\medusa\ThirdParty\re2\memory.c" />
+    <ClCompile Include="D:\DarkSpace\medusa\ThirdParty\re2\regerror.c" />
+    <ClCompile Include="D:\DarkSpace\medusa\ThirdParty\re2\regexp.c" />
+    <ClCompile Include="D:\DarkSpace\medusa\ThirdParty\re2\regsub.c" />
+    <ClCompile Include="D:\DarkSpace\medusa\ThirdParty\re2\report.c" />
+    <ClCompile Include="D:\DarkSpace\medusa\ThirdParty\re2\widechar.c" />
+    <ClCompile Include="D:\DarkSpace\medusa\ThirdParty\zlib\adler32.c" />
+    <ClCompile Include="D:\DarkSpace\medusa\ThirdParty\zlib\compress.c" />
+    <ClCompile Include="D:\DarkSpace\medusa\ThirdParty\zlib\crc32.c" />
+    <ClCompile Include="D:\DarkSpace\medusa\ThirdParty\zlib\deflate.c" />
+    <ClCompile Include="D:\DarkSpace\medusa\ThirdParty\zlib\gzio.c" />
+    <ClCompile Include="D:\DarkSpace\medusa\ThirdParty\zlib\infblock.c" />
+    <ClCompile Include="D:\DarkSpace\medusa\ThirdParty\zlib\infcodes.c" />
+    <ClCompile Include="D:\DarkSpace\medusa\ThirdParty\zlib\inffast.c" />
+    <ClCompile Include="D:\DarkSpace\medusa\ThirdParty\zlib\inflate.c" />
+    <ClCompile Include="D:\DarkSpace\medusa\ThirdParty\zlib\inftrees.c" />
+    <ClCompile Include="D:\DarkSpace\medusa\ThirdParty\zlib\infutil.c" />
+    <ClCompile Include="D:\DarkSpace\medusa\ThirdParty\zlib\trees.c" />
+    <ClCompile Include="D:\DarkSpace\medusa\ThirdParty\zlib\uncompr.c" />
+    <ClCompile Include="D:\DarkSpace\medusa\ThirdParty\zlib\zutil.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="D:\DarkSpace\medusa\out\cmake-bootstrap\ZERO_CHECK.vcxproj">
+      <Project>{9DB74781-BF5B-3745-911B-05CDC566C0E6}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

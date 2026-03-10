@@ -475,7 +475,7 @@ void MetaClient::onDisconnect()
 
 //----------------------------------------------------------------------------
 
-const char *	PRIMARY_SERVER_ADDRESS = "meta-server.palestar.com";
+const char *    PRIMARY_SERVER_ADDRESS = "127.0.0.1";
 const int		PRIMARY_SERVER_PORT = 9000;
 
 /**
@@ -487,7 +487,7 @@ int MetaClient::open()
 	Settings settings( "GCQ" );
 
 	// get the address and port of the primary server, which can be overridden from the config.ini file
-	CharString	address = settings.get( "metaAddress", PRIMARY_SERVER_ADDRESS);
+    CharString  address = settings.get( "metaAddress", PRIMARY_SERVER_ADDRESS);
 	int	port = settings.get( "metaPort", PRIMARY_SERVER_PORT);
 
 	TRACE( "MetaClient::open, connecting to primary server..." );

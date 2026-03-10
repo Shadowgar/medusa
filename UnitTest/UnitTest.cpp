@@ -52,17 +52,13 @@ int main(int argc, char* argv[])
 
 		nTestCount++;
 
-#ifndef _DEBUG
 		try {
-#endif
 			pTest->test();
-#ifndef _DEBUG
 		}
 		catch( ... )
 		{
 			bFailure = true;
 		}
-#endif
 
 		printf("-------------------------------------------------------------\n");
 		if ( bFailure )
@@ -80,7 +76,6 @@ int main(int argc, char* argv[])
 	printf("%d TESTS RAN, %d FAILED, %d PASSED...\n", nTestCount, nFailedCount, nPassedCount );
 	//getch();
 
-	Thread::sleep( 5000 );
 
 	return nFailedCount > 0 ? 1 : 0;
 }

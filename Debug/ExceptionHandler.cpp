@@ -20,6 +20,7 @@
 #include <windows.h>
 #include <Excpt.h>
 #include <dbghelp.h>
+#include <stdint.h>
 #endif
 
 //---------------------------------------------------------------------------------------------------
@@ -69,6 +70,12 @@ dword & GetProgramBuild()
 int GetStack( void * pContext, dword * pStack, int nMax )
 {
 #if defined(_WIN32) || defined(_XBOX)
+#if defined(_WIN64)
+	(void)pContext;
+	(void)pStack;
+	(void)nMax;
+	return 0;
+#else
 	int nCount = 0;
 
 	dword * pFrame = (dword *)((CONTEXT *)pContext)->Ebp;
@@ -104,6 +111,7 @@ int GetStack( void * pContext, dword * pStack, int nMax )
 		pStack[ nCount ] = 0;
 
 	return nCount;
+#endif
 #else
 	return 0;
 #endif
@@ -112,6 +120,11 @@ int GetStack( void * pContext, dword * pStack, int nMax )
 int GetStack( dword * pStack, int nMax )
 {
 #if defined(_WIN32) || defined(_XBOX)
+#if defined(_WIN64)
+	(void)pStack;
+	(void)nMax;
+	return 0;
+#else
    int nCount = 0;
    // due to release build optimizations, we don't want to miss any critical functions, so we don't skip
    // any entries in the stack.
@@ -158,6 +171,7 @@ int GetStack( dword * pStack, int nMax )
 	   pStack[ nCount ] = 0;		
 
    return nCount;
+#endif
 #else
 	return 0;
 #endif
@@ -171,7 +185,7 @@ bool GetLogicalAddress( void * addr,char * szModule, dword len,dword & section, 
     if ( !VirtualQuery( addr, &mbi, sizeof(mbi) ) )
         return false;
 
-    DWORD hMod = (DWORD)mbi.AllocationBase;
+    uintptr_t hMod = (uintptr_t)mbi.AllocationBase;
 
     if ( !GetModuleFileName( (HMODULE)hMod, szModule, len ) )
         return false;
@@ -188,7 +202,7 @@ bool GetLogicalAddress( void * addr,char * szModule, dword len,dword & section, 
 
     PIMAGE_SECTION_HEADER pSection = IMAGE_FIRST_SECTION( pNtHdr );
 
-    DWORD rva = (DWORD)addr - hMod; // RVA is offset from module load address
+    uintptr_t rva = (uintptr_t)addr - hMod; // RVA is offset from module load address
 
     // Iterate through the section table, looking for the one that encompasses
     // the linear address.
@@ -205,7 +219,7 @@ bool GetLogicalAddress( void * addr,char * szModule, dword len,dword & section, 
             // and store in the "section" & "offset" params, which were
             // passed by reference.
             section = i+1;
-            offset = rva - sectionStart;
+            offset = dword(rva - sectionStart);
             return true;
         }
     }
@@ -272,7 +286,7 @@ void DumpContextStack( CharString & a_sDump, void * pContext )
 
 #if defined(_WIN32) || defined(_XBOX)
 
-static LPTSTR GetExceptionString( DWORD dwCode )
+static const char * GetExceptionString( DWORD dwCode )
 {
     #define EXCEPTION( x ) case EXCEPTION_##x: return #x;
 
@@ -308,7 +322,7 @@ static LPTSTR GetExceptionString( DWORD dwCode )
     static char szBuffer[512] = "";
 
     FormatMessage(  FORMAT_MESSAGE_IGNORE_INSERTS | FORMAT_MESSAGE_FROM_HMODULE,
-                    GetModuleHandle( "NTDLL.DLSTR(" ),
+                    GetModuleHandle( "NTDLL.DLL" ),
                     dwCode, 0, szBuffer, sizeof( szBuffer ), 0 );
 
     return szBuffer;
@@ -337,14 +351,26 @@ static void dumpExceptionReport( void * pException )
     DWORD section, offset;
 
 	if ( GetLogicalAddress( pExceptionRecord->ExceptionAddress, szFaultingModule, sizeof( szFaultingModule ), section, offset ) )
-		sprintf_s( sLine, sizeof(sLine), "Fault address:  %08X %02X:%08X %s", unsigned(pExceptionRecord->ExceptionAddress),section, offset, szFaultingModule );
+		sprintf_s( sLine, sizeof(sLine), "Fault address:  %p %02X:%08X %s", pExceptionRecord->ExceptionAddress, section, offset, szFaultingModule );
 	else
-		sprintf_s( sLine, sizeof(sLine), "Fault address:  %08X ??:???????? %s", unsigned(pExceptionRecord->ExceptionAddress), szFaultingModule );
+		sprintf_s( sLine, sizeof(sLine), "Fault address:  %p ??:???????? %s", pExceptionRecord->ExceptionAddress, szFaultingModule );
 	LOG_ERROR( "EXCEPTION",  sLine );
 
 	// Show the registers
     PCONTEXT pCtx = pExceptionInfo->ContextRecord;
     LOG_ERROR( "EXCEPTION",  "Registers:" );
+#if defined(_WIN64)
+    sprintf_s( sLine, sizeof(sLine), "RAX:%016llX RBX:%016llX RCX:%016llX RDX:%016llX", (unsigned long long)pCtx->Rax, (unsigned long long)pCtx->Rbx, (unsigned long long)pCtx->Rcx, (unsigned long long)pCtx->Rdx );
+	LOG_ERROR( "EXCEPTION",  sLine );
+    sprintf_s( sLine, sizeof(sLine), "RSI:%016llX RDI:%016llX RBP:%016llX RSP:%016llX", (unsigned long long)pCtx->Rsi, (unsigned long long)pCtx->Rdi, (unsigned long long)pCtx->Rbp, (unsigned long long)pCtx->Rsp );
+	LOG_ERROR( "EXCEPTION",  sLine );
+    sprintf_s( sLine, sizeof(sLine), "R8 :%016llX R9 :%016llX R10:%016llX R11:%016llX", (unsigned long long)pCtx->R8, (unsigned long long)pCtx->R9, (unsigned long long)pCtx->R10, (unsigned long long)pCtx->R11 );
+	LOG_ERROR( "EXCEPTION",  sLine );
+    sprintf_s( sLine, sizeof(sLine), "R12:%016llX R13:%016llX R14:%016llX R15:%016llX", (unsigned long long)pCtx->R12, (unsigned long long)pCtx->R13, (unsigned long long)pCtx->R14, (unsigned long long)pCtx->R15 );
+	LOG_ERROR( "EXCEPTION",  sLine );
+    sprintf_s( sLine, sizeof(sLine), "RIP:%016llX EFlags:%08X", (unsigned long long)pCtx->Rip, pCtx->EFlags );
+	LOG_ERROR( "EXCEPTION",  sLine );
+#else
     sprintf_s( sLine, sizeof(sLine), "EAX:%08X EBX:%08X ECX:%08X EDX:%08X ESI:%08X EDI:%08X",pCtx->Eax, pCtx->Ebx, pCtx->Ecx, pCtx->Edx, pCtx->Esi, pCtx->Edi );
 	LOG_ERROR( "EXCEPTION",  sLine );
     sprintf_s( sLine, sizeof(sLine), "CS:EIP:%04X:%08X", pCtx->SegCs, pCtx->Eip );
@@ -355,6 +381,7 @@ static void dumpExceptionReport( void * pException )
 	LOG_ERROR( "EXCEPTION",  sLine );
     sprintf_s( sLine, sizeof(sLine), "Flags:%08X", pCtx->EFlags );
 	LOG_ERROR( "EXCEPTION",  sLine );
+#endif
 
 	CharString sDump;
 	DumpContextStack( sDump, pCtx );

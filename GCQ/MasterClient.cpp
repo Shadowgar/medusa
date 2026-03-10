@@ -71,7 +71,7 @@ bool MasterClient::open()
 	m_PublicKeyEvent.clear();
 
 	// open connection to server
-	if (! Client::open( new Socket("ZLIB"), "master-server.palestar.com", 8999 ) )
+	if (! Client::open( new Socket("ZLIB"), "127.0.0.1", 8999 ) )
 		return false;
 	if ( m_PublicKeyEvent.wait( 30000 ) )
 		return false;

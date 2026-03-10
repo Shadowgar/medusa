@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="D:\DarkSpace\medusa\out\cmake-bootstrap\CMakeFiles\168a42f8c33c2a082d86187f375a1e1b\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{EAA70805-C56A-3CB2-9B68-FEC68B60990B}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -18,12 +18,8 @@
 #include "Standard/Reference.h"
 #include "Standard/Types.h"
 
-#include <map>	
-#ifdef WIN32
-#include <typeinfo.h>
-#else
+#include <map>
 #include <typeinfo>
-#endif
 
 #include "MedusaDll.h"
 
