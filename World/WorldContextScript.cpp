@@ -322,7 +322,9 @@ static const luaL_Reg lualibsDS[] = {
 	{LUA_MATHLIBNAME, luaopen_math},
 	{LUA_LOADLIBNAME, luaopen_package},
 #ifndef USE_PLAIN_LUA
+#if !defined(MEDUSA_DISABLE_LUA_JIT_MODULE)
 	{LUA_JITLIBNAME, luaopen_jit},
+#endif
 #endif
 	{NULL, NULL}
 };
@@ -416,7 +418,7 @@ bool WorldContext::runScript( UniqueNumber nScriptId, const char * pName, const 
 	// open standard libs
 	lua_cpcall( context.pScript, &WorldContext::loadLuaLibs, NULL );
 
-#ifndef USE_PLAIN_LUA
+#if !defined(USE_PLAIN_LUA) && !defined(MEDUSA_DISABLE_LUA_JIT_MODULE)
 	WorldContext::ActivateJITOpt(context.pScript);
 #endif
 

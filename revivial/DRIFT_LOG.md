@@ -47,3 +47,6 @@
 - Cross-repo Linux container build/staging update:
   - `gamecq/revivial/docker/builder/*` and `scripts/build-linux-server-bootstrap.ps1` now build legacy Linux medusa outputs and stage server runtime dependencies from:
     - `medusa/out/server-bootstrap/Release` (`libMedusa.so`, `libNetwork.so`, `libGCQ.so`, `libRender3D.so`, `libWorld.so`)
+- Linux bootstrap compatibility adjustment:
+  - `World/WorldContextScript.cpp` now allows disabling LuaJIT module registration/activation with `MEDUSA_DISABLE_LUA_JIT_MODULE`.
+  - current legacy Linux builder sets this define to avoid unresolved `luaopen_jit` linker failures when using host-arch Lua compatibility libs.
